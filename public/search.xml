@@ -434,4 +434,37 @@
         <tag>algorithm</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hexo遇到的坑</title>
+    <url>/2021/10/28/Hexo/</url>
+    <content><![CDATA[<p>🍗 换电脑之后重新部署Hexo，遇到一些坑，整理一下</p>
+<a id="more"></a>
+
+<ol>
+<li><p>Hexo在node高版本下，部署不成功。最后安装的node版本为 v12.0, OK了</p>
+</li>
+<li><p>很多不同的软件都不支持node的最新版本，这是大坑。今天才知道可以用 nvm 来管理不同版本的node，可以来回切换。</p>
+</li>
+<li><p>当hexo命令不被识别，需要重新安装：npm install hexo-cli -g<br>如果还没效果，那就卸载node，然后重新安装node，然后hexo</p>
+</li>
+<li><p>博客代码部署上，使用的是Hexo的一键部署，hexo -d 把 public 目录推送到github上仓库1，覆盖静态文件。然后整个项目关联到github上仓库2.<br>这样项目代码由仓库2维护，git pull/push. 博客静态文件由仓库1部署展示。</p>
+</li>
+<li><p>Hexo主题themes/next 文件夹无法提交到GitHub:</p>
+<ul>
+<li>原因：themes/next也是从仓库里拉取下来的 他关联到了作者的git仓库, 所以提交不上去</li>
+<li>解决方法:<br>a) 从暂存区删除该文件夹: git rm –cache themes/next<br>b) 把 themes/next/.git文件夹重命名为themes/hexo-theme-icarus/.git.bak<br>c) git add .   git commit -m “add themes” 即可</li>
+</ul>
+</li>
+<li><p>具体建站，看<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官网手册</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>nodejs</tag>
+      </tags>
+  </entry>
 </search>
