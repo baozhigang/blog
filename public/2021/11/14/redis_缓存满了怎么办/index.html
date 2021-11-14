@@ -46,14 +46,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zhigang&#39;s Blog">
-<meta property="og:url" content="http://baozhigang.github.io/tags/redis/index.html">
+  <meta name="description" content="🥡 在高并发场景，缓存被大量使用的情况下，不免会出现一种情况：缓存满了。下面我们谈一下这样的情况怎么处理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis缓存满了怎么办">
+<meta property="og:url" content="http://baozhigang.github.io/2021/11/14/redis_%E7%BC%93%E5%AD%98%E6%BB%A1%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E/index.html">
 <meta property="og:site_name" content="Zhigang&#39;s Blog">
+<meta property="og:description" content="🥡 在高并发场景，缓存被大量使用的情况下，不免会出现一种情况：缓存满了。下面我们谈一下这样的情况怎么处理。">
+<meta property="article:published_time" content="2021-11-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-14T06:57:20.571Z">
 <meta property="article:author" content="baozhigang">
+<meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://baozhigang.github.io/tags/redis/">
+<link rel="canonical" href="http://baozhigang.github.io/2021/11/14/redis_%E7%BC%93%E5%AD%98%E6%BB%A1%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E/">
 
 
 <script id="page-configurations">
@@ -61,11 +66,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>标签: redis | Zhigang's Blog</title>
+  <title>Redis缓存满了怎么办 | Zhigang's Blog</title>
   
 
 
@@ -201,90 +206,133 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">redis
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://baozhigang.github.io/2021/11/14/redis_%E7%BC%93%E5%AD%98%E6%BB%A1%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-2021.jpeg">
+      <meta itemprop="name" content="my idol">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhigang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redis缓存满了怎么办
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-14 00:00:00 / 修改时间：14:57:20" itemprop="dateCreated datePublished" datetime="2021-11-14T00:00:00+08:00">2021-11-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2021</h1>
-    </div>
+        <p>🥡 在高并发场景，缓存被大量使用的情况下，不免会出现一种情况：缓存满了。<br>下面我们谈一下这样的情况怎么处理。</p>
+<a id="more"></a>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-14T00:00:00+08:00"
-              content="2021-11-14">
-          11-14
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2021/11/14/redis_%E7%BC%93%E5%AD%98%E6%BB%A1%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E/" itemprop="url">
-            <span itemprop="name">Redis缓存满了怎么办</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-03T00:00:00+08:00"
-              content="2021-11-03">
-          11-03
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2021/11/03/redis_%E7%BC%93%E5%AD%98%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8C%E5%86%99%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98/" itemprop="url">
-            <span itemprop="name">缓存和数据库双写一致性问题</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-11-02T00:00:00+08:00"
-              content="2021-11-02">
-          11-02
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2021/11/02/redis_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/" itemprop="url">
-            <span itemprop="name">缓存雪崩、击穿、穿透</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
+<h3 id="缓存容量"><a href="#缓存容量" class="headerlink" title="## 缓存容量"></a><font color=#11d17b>## </font><font face=黑体>缓存容量</font></h3><p>为了避免缓存过早被写满，我们需要根据应用数据访问特征和成本开销来综合考虑缓存容量的大小，一般会把缓存容量设置为总数据量的15%-30%。</p>
+<blockquote>
+<p>命令：CONFIG SET maxmemory 4gb (4gb是举个🌰)</p>
+</blockquote>
+<h3 id="淘汰策略"><a href="#淘汰策略" class="headerlink" title="## 淘汰策略"></a><font color=#11d17b>## </font><font face=黑体>淘汰策略</font></h3><p>缓存写满是不可避免的，Redis有自己的缓存淘汰策略，在4.0版本之前有6中淘汰策略：</p>
+<ol>
+<li>noeviction(默认策略): 若内存大小达到了maxmemory值，并不会淘汰数据，再有写请求时，Redis直接返回错误。</li>
+<li>allkeys-lru: 所有key都是使用LRU算法进行淘汰。</li>
+<li>volatile-lru: 所有设置了过期时间的key使用LRU算法进行淘汰。</li>
+<li>allkeys-random: 所有key使用随机淘汰的方式进行淘汰。</li>
+<li>volatile-random: 所有设置了过期时间的key使用随机淘汰的方式进行淘汰。</li>
+<li>volatile-ttl: 所有设置了过期时间的key根据过期时间进行淘汰，越早过期越早被淘汰。</li>
+</ol>
+<p>在4.0版本之后又增加了2种:</p>
+<ol start="7">
+<li>allkeys-lfu: 所有key都是使用LFU算法进行淘汰。</li>
+<li>volatile-lfu: 所有设置了过期时间的key使用LFU算法进行淘汰。</li>
+</ol>
+<h4 id="LRU算法"><a href="#LRU算法" class="headerlink" title="### LRU算法"></a><font color=#11d17b>### </font><font face=黑体>LRU算法</font></h4><p>我们先来讲讲LRU算法，LRU全称是 Least Recently Used, 即 按照最近最少使用的原则来筛选数据，最不常使用的数据会被筛选出来进行淘汰。</p>
+<p>底层原理：<br>LRU用一个链表来维护数据，链表头部是MRU端，代表最最近常使用的数据；尾部是LRO端，代表最近不常用的数据。数据访问时根据移动链表来维护数据的最近常用性。</p>
+<p>LRU算法有两个问题：</p>
+<ol>
+<li>用链表管理所有的缓存数据会带来额外的空间开销。</li>
+<li>大量数据访问时，链表的移动操作很耗时，会降低Redis的缓存性能。</li>
+</ol>
+<p>在Redis中，对LRU算法做了简化:</p>
+<p>Redis默认会记录每个数据最近一次访问的时间戳(由对象来维护{lru:时间戳})，淘汰数据时第一次会随机筛选出N个数据，放到一个候选链表当中，把时间戳最小的淘汰。</p>
+<blockquote>
+<p>N 用配置参数 maxmemory-samples 来设置</p>
+</blockquote>
+<p>当再次淘汰数据时，Redis会挑选时间戳小于候选链表中最小时间戳的数据放到候选链表中，然后把时间戳最小的淘汰出去。</p>
+<h4 id="LFU算法"><a href="#LFU算法" class="headerlink" title="### LFU算法"></a><font color=#11d17b>### </font><font face=黑体>LFU算法</font></h4><p>Redis从4.0版本之后增加了LFU策略，是对LRU策略的进一步优化。全称 Least Frequently Used。</p>
+<p>核心思想:<br>根据key最近被访问的频率进行淘汰。即，优先淘汰最近访问频率小的数据，如果频率相同，则淘汰最近最少使用的数据。</p>
+<p>底层原理：<br>把lru策略中的lru字段(24bit)差分成两部分，前16bit为ldt值来表示数据访问的时间戳，后8bit为counter值，表示数据的访问次数。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="## 解决方案"></a><font color=#11d17b>## </font><font face=黑体>解决方案</font></h3><ol>
+<li>如果一部分是热点数据，一部分是冷门数据这样的缓存分布情况，建议使用allkeys-lru或者allkeys-lfu策略。</li>
+<li>如果业务应用中数据访问频率相差不大，建议用allkeys-random策略。</li>
+<li>如果业务中有置顶的需求，可以使用volatile-lru或者volatile-lfu策略，同时不给这些置顶数据设置过期时间。</li>
+</ol>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/redis/" rel="tag"># redis</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/11/computer_TCP%E5%92%8CUDP%E5%AF%B9%E6%AF%94/" rel="prev" title="TCP和UDP对比">
+      <i class="fa fa-chevron-left"></i> TCP和UDP对比
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -335,6 +383,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存容量"><span class="nav-number">1.</span> <span class="nav-text">## 缓存容量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#淘汰策略"><span class="nav-number">2.</span> <span class="nav-text">## 淘汰策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LRU算法"><span class="nav-number">2.1.</span> <span class="nav-text">### LRU算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LFU算法"><span class="nav-number">2.2.</span> <span class="nav-text">### LFU算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">3.</span> <span class="nav-text">## 解决方案</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
