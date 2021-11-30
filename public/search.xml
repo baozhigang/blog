@@ -526,7 +526,7 @@
   <entry>
     <title>TCP和UDP对比</title>
     <url>/2021/11/11/computer_TCP%E5%92%8CUDP%E5%AF%B9%E6%AF%94/</url>
-    <content><![CDATA[<p>🖥️ TCP（Transmission Control Protocol，传输控制协议）和UDP（User Data Protocol ,用户数据报协议）都属于TCP/IP协议簇。两者经常用来进行比较，也是面试的高频题。</p>
+    <content><![CDATA[<p>🖥️ TCP（Transmission Control Protocol，传输控制协议）和UDP（User Data Protocol ,用户数据协议）都属于TCP/IP协议簇。两者经常用来进行比较，也是面试的高频题。</p>
 <p>下面我们来整理对比下：</p>
 <a id="more"></a>
 
