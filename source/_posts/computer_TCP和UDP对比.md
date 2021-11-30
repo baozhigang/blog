@@ -9,7 +9,7 @@ tags:
 - udp
 ---
 
-🖥️ TCP（Transmission Control Protocol，传输控制协议）和UDP（User Data Protocol ,用户数据报协议）都属于TCP/IP协议簇。两者经常用来进行比较，也是面试的高频题。
+🖥️ TCP（Transmission Control Protocol，传输控制协议）和UDP（User Data Protocol ,用户数据协议）都属于TCP/IP协议簇。两者经常用来进行比较，也是面试的高频题。
 
 下面我们来整理对比下：
 
