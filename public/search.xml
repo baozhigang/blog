@@ -800,4 +800,31 @@
         <tag>Google</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CentOS配置静态IP</title>
+    <url>/2021/12/29/centOS_%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/</url>
+    <content><![CDATA[<p>📶 CentOS配置静态IP的流程整理如下：</p>
+<a id="more"></a>
+
+<ol>
+<li>ip a 命令确定LAN1接口对应的网卡型号，很可能是 enp62s0f2(双核机型), eno1(单核机型)</li>
+<li>配置默认网卡：vi /etc/sysconfig/network 添加如下配置：<br> GATEWAYDEV=enp62s0f2<br> GATEWAY=192.168.1.1</li>
+<li>修改相应的配置文件 vi /etc/sysconfig/network-scripts/ifcfg-enp62s0f2(网卡名称)<br>不启用DHCP：BOOTPROTO=none<br>开机联网：ONBOOT=yes<br>本机静态IP：IPADDR=192.168.1.200 (内网随机一个)<br>掩码：PREIFIX=24</li>
+<li>启用网卡: nmcli con up enp62s0f2(网卡名称)；</li>
+<li>重启网络: service network restart;</li>
+<li>测试是否能联网 ping 192.168.1.8， ping 223.5.5.5(外网测试，比如用阿里IP)</li>
+<li>配置实际网关  vi /etc/sysconfig/network</li>
+<li>按照实际参数修改 IPPADDR, PREFIX vi /etc/sysconfig/network-scripts/ifcfg-网卡名称；</li>
+<li>重启网络: service network restart;</li>
+<li>检验是否正确<br>cat /etc/sysconfig/network<br>cat /etc/sysconfig/network-scripts/ifcfg-网卡名称<br>ip a</li>
+</ol>
+]]></content>
+      <categories>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+        <tag>network</tag>
+      </tags>
+  </entry>
 </search>
