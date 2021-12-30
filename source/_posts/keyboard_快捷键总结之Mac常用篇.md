@@ -74,5 +74,6 @@ tags:
 - Command-Delete：将所选项移到废纸篓
 - Shift-Command-Delete：清倒废纸篓
 - Control–下箭头：显示最前面的应用的所有窗口
+- return: 选中文件并return可以重命名
 
 > 访达只记住这几个就可以了，其他的用鼠标点击，减少记忆
