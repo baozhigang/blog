@@ -773,6 +773,7 @@
 <li>Command-Delete：将所选项移到废纸篓</li>
 <li>Shift-Command-Delete：清倒废纸篓</li>
 <li>Control–下箭头：显示最前面的应用的所有窗口</li>
+<li>return: 选中文件并return可以重命名</li>
 </ul>
 <blockquote>
 <p>访达只记住这几个就可以了，其他的用鼠标点击，减少记忆</p>
