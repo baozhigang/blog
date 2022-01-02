@@ -791,7 +791,39 @@
   <entry>
     <title>快捷键总结之浏览器篇</title>
     <url>/2021/12/29/keyboard_%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%80%BB%E7%BB%93%E4%B9%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AF%87/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>🎹 熟练使用键盘快捷键，是高效程序员必备的技能之一，这是第二篇，针对Google浏览器的快捷键。</p>
+<a id="more"></a>
+
+<h3 id="标签页和窗口快捷键"><a href="#标签页和窗口快捷键" class="headerlink" title="## 标签页和窗口快捷键"></a><font color=#11d17b>## </font><font face=黑体>标签页和窗口快捷键</font></h3><ul>
+<li>Command-N：打开新窗口</li>
+<li>Command-Shift-W：关闭当前窗口</li>
+<li>Command-T：打开新标签页</li>
+<li>Command-W：关闭当前标签页</li>
+<li>Command-Shift-T：重新打开上次关闭的标签页</li>
+<li>Command-Shift-N：在隐身模式下打开新窗口</li>
+<li>Command-O：在 Chrome 浏览器中打开计算机中的文件</li>
+<li>Command-Shift-点击链接：在新标签页中打开链接并切换到刚打开的标签页</li>
+<li>Command-M：最小化窗口</li>
+<li>Command-H：隐藏 Chrome 浏览器</li>
+</ul>
+<blockquote>
+<p>计10个</p>
+</blockquote>
+<h3 id="网页快捷键"><a href="#网页快捷键" class="headerlink" title="## 网页快捷键"></a><font color=#11d17b>## </font><font face=黑体>网页快捷键</font></h3><ul>
+<li>Command-L：凸显地址栏</li>
+<li>Command-S：保存当前网页</li>
+<li>Command-R：重新载入当前网页</li>
+<li>Command-Option-I：打开“开发人员工具”</li>
+<li>F12：打开“开发人员工具”</li>
+<li>Command-Y：在新标签页中显示浏览历史记录</li>
+<li>Command-D：将当前网页保存为书签</li>
+<li>Command-Shift-Delete：打开“清除浏览数据”对话框</li>
+<li>空格键：向下滚动网页</li>
+</ul>
+<blockquote>
+<p>计9个</p>
+</blockquote>
+]]></content>
       <categories>
         <category>skill</category>
       </categories>
