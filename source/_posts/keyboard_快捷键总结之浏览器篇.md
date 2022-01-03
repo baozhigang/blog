@@ -20,6 +20,8 @@ tags:
 - Command-W：关闭当前标签页
 - Command-Shift-T：重新打开上次关闭的标签页
 - Command-Shift-N：在隐身模式下打开新窗口
+- Command-1~8：跳转到指定的标签页
+- Command-9：跳转到最后一个标签页
 - Command-O：在 Chrome 浏览器中打开计算机中的文件
 - Command-Shift-点击链接：在新标签页中打开链接并切换到刚打开的标签页
 - Command-M：最小化窗口
