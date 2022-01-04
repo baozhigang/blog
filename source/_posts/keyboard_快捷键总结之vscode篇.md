@@ -34,6 +34,7 @@ tags:
 
 ### <font color=#11d17b>## </font><font face=黑体>编辑器快捷键</font>
 - Command-P：跳转到某个文件
+- Ctrl-W：选择一个窗口
 - Command-N：新建文件
 - Command-O：打开文件
 - Command-S：保存文件
