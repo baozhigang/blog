@@ -489,6 +489,7 @@
 </blockquote>
 <h3 id="编辑器快捷键"><a href="#编辑器快捷键" class="headerlink" title="## 编辑器快捷键"></a><font color=#11d17b>## </font><font face=黑体>编辑器快捷键</font></h3><ul>
 <li>Command-P：跳转到某个文件</li>
+<li>Ctrl-W：选择一个窗口</li>
 <li>Command-N：新建文件</li>
 <li>Command-O：打开文件</li>
 <li>Command-S：保存文件</li>
@@ -608,6 +609,8 @@
 <li>Command-W：关闭当前标签页</li>
 <li>Command-Shift-T：重新打开上次关闭的标签页</li>
 <li>Command-Shift-N：在隐身模式下打开新窗口</li>
+<li>Command-1~8：跳转到指定的标签页</li>
+<li>Command-9：跳转到最后一个标签页</li>
 <li>Command-O：在 Chrome 浏览器中打开计算机中的文件</li>
 <li>Command-Shift-点击链接：在新标签页中打开链接并切换到刚打开的标签页</li>
 <li>Command-M：最小化窗口</li>
