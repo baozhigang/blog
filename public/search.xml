@@ -929,4 +929,42 @@
         <tag>nodejs</tag>
       </tags>
   </entry>
+  <entry>
+    <title>superset安装使用</title>
+    <url>/2022/01/06/superset_%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>📊 Apache Superset is a modern data exploration and visualization platform. 下面介绍一下项目选择方案上的考虑，和superset的安装使用。</p>
+<a id="more"></a>
+
+<h3 id="Data-Visualization-for-Large-Screen-选型"><a href="#Data-Visualization-for-Large-Screen-选型" class="headerlink" title="## Data Visualization for Large Screen 选型"></a><font color=#11d17b>## </font><font face=黑体>Data Visualization for Large Screen 选型</font></h3><p>1.开源的对 superset、redash 和 Metabase 做了对比，最终选择了superset</p>
+<ul>
+<li>superset<br>优点： 1.可视化图标类型比较丰富  2. 项目活跃度比较高<br>缺点： 文档不完善，需要一段时间才能掌握</li>
+<li>redash<br>优点：1.简单、实用、文档清晰  2.原码可读性好，适合二次开发<br>缺点：图表样式不如superset丰富</li>
+<li>Metabase 后端语言Clojure，跟我们不适配</li>
+</ul>
+<p>2.收费版的对 阿里云的dataV、山海鲸做了简单了解：</p>
+<ul>
+<li>项目是绑定设备的，每增加一个设备需要单独添加收费。</li>
+<li>基于开源项目能满足我们的需求，于是我们优先使用了开源项目。</li>
+</ul>
+<h3 id="superset-安装使用流程"><a href="#superset-安装使用流程" class="headerlink" title="## superset 安装使用流程"></a><font color=#11d17b>## </font><font face=黑体>superset 安装使用流程</font></h3><p>1.官方文档：<a href="https://superset.apache.org/docs/intro" target="_blank" rel="noopener">https://superset.apache.org/docs/intro</a></p>
+<p>2.安装<br>官方的 Docker image 仅包含基础的功能，<br>因此我们使用了Docker Compose的方式在本地安装,<br>文档：<a href="https://superset.apache.org/docs/installation/installing-superset-using-docker-compose" target="_blank" rel="noopener">https://superset.apache.org/docs/installation/installing-superset-using-docker-compose</a></p>
+<p>3.连接数据库<br>superset启动后，打开项目 <a href="http://localhost:8088/，菜单栏" target="_blank" rel="noopener">http://localhost:8088/，菜单栏</a> Data -&gt; Databases 添加数据库，注意HOST: host.docker.internal (Mac users) or IP地址 (Linux users)<br>文档：<a href="https://superset.apache.org/docs/databases/db-connection-ui" target="_blank" rel="noopener">https://superset.apache.org/docs/databases/db-connection-ui</a></p>
+<p>4.添加数据集<br>菜单栏 Data -&gt; Datasets 右上角 + DATASET 添加数据集</p>
+<p>5.制作图表<br>菜单栏 Charts -&gt; 右上角 + CHART</p>
+<p>6.让角色public免登陆访问<br>参考文章：<a href="https://blog.csdn.net/DraGon_HooRay/article/details/120780148" target="_blank" rel="noopener">https://blog.csdn.net/DraGon_HooRay/article/details/120780148</a><br>a) 进入镜像安装vim: apt-get install vim<br>b) 编辑配置文件 /app/superset/config.py<br>PUBLIC_ROLE_LIKE: Optional[str] = “Gamma”<br>superset init  // 初始化<br>c) 将pubilc涉及add edit delete menu权限全部去掉，<br>   菜单栏：Settings -&gt; List Roles -&gt; Public 编辑权限</p>
+<p>7.允许跨域请求iframe<br>编辑配置文件 /app/superset/config.py<br>WTF_CSRF_ENABLED = False<br>重启docker-compose down  / up</p>
+<p>8.把图表的加载地址分享给前端，在编辑 Chart 页面找到&lt;&gt;按钮，复制代码给前端</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span></span></span><br><span class="line"><span class="tag">  <span class="attr">width</span>=<span class="string">"600"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">height</span>=<span class="string">"400"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">seamless</span></span></span><br><span class="line"><span class="tag">  <span class="attr">frameBorder</span>=<span class="string">"0"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">scrolling</span>=<span class="string">"no"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">src</span>=<span class="string">"http://192.168.1.100:8088/superset/explore/?r=19&amp;standalone=1&amp;height=400"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h5 id="后续研究"><a href="#后续研究" class="headerlink" title="后续研究"></a>后续研究</h5><p>1.如何使用SQL Lab<br>2.如何更好的管理和使用Chart模板<br>3.二开</p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>superset</tag>
+        <tag>bi</tag>
+      </tags>
+  </entry>
 </search>
