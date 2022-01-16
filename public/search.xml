@@ -1002,4 +1002,58 @@
         <tag>error</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Homebrew的安装卸载问题</title>
+    <url>/2022/01/16/brew_PHP/</url>
+    <content><![CDATA[<p>🪜 记录一些自己在软件管理方面的过失，希望吸取教训，不再出现类似的失误。我把这个过程分成四个阶段，详细记录分析。</p>
+<h5 id="阶段一"><a href="#阶段一" class="headerlink" title="阶段一"></a>阶段一</h5><p>Mac系统升级后，取消了自带PHP，我们只能自己安装。安装最好的办法是使用Homebrew安装，方便升级和卸载.。（当然，这是事后才明白的，🐶）。</p>
+<a id="more"></a>
+
+<p>当我由于某个原因想卸载PHP的时候，记不清是怎么安装的了，匆忙之下，找了个帖子删除本地PHP。结果多删除了文件，导致brew安装PHP的时候安装失败：</p>
+<pre><code>brew install php@7.4
+Error: No such file or directory - /usr/local/var/homebrew/linked/php@7.4</code></pre><p>小结：</p>
+<ul>
+<li>软件的管理一定要交给管理工具去处理，如mac的Homebrew。<br> 安装 brew install <a href="mailto:php@7.4">php@7.4</a><br> 卸载 brew uninstall <a href="mailto:php@7.4">php@7.4</a><br> 就解决了。</li>
+<li>删除文件要慎重，不清楚的话先改名，新安装成功后再删除旧的文件。</li>
+</ul>
+<h5 id="阶段二"><a href="#阶段二" class="headerlink" title="阶段二"></a>阶段二</h5><p>我意识到电脑上的Homebrew文件缺失了，查下资料只能卸载重新安装。吸取教训，我到官网找到教程，</p>
+<blockquote>
+<p><a href="https://github.com/homebrew/install#uninstall-homebrew" target="_blank" rel="noopener">https://github.com/homebrew/install#uninstall-homebrew</a></p>
+</blockquote>
+<p>执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;uninstall.sh)&quot;</span><br><span class="line">curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused</span><br><span class="line">Failed to fetch Homebrew .gitignore!</span><br></pre></td></tr></table></figure>
+<p>请求失败，需要梯子</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;bin&#x2F;bash -c &quot;$(curl -x socks5h:&#x2F;&#x2F;x.x.x.x:x -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;uninstall.sh)&quot;</span><br><span class="line">curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused</span><br><span class="line">Failed to fetch Homebrew .gitignore!</span><br></pre></td></tr></table></figure>
+<p>我要崩溃了。。。<br>卸载脚本里面发起请求不成功，为什么代理还不行？我只能调整方向，找开源镜像。</p>
+<h5 id="阶段三"><a href="#阶段三" class="headerlink" title="阶段三"></a>阶段三</h5><p>找到清华大学的开源镜像，添加环境变量到本地：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export HOMEBREW_BREW_GIT_REMOTE&#x3D;&quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;homebrew&#x2F;brew.git&quot;</span><br><span class="line">export HOMEBREW_CORE_GIT_REMOTE&#x3D;&quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;homebrew&#x2F;homebrew-core.git&quot;</span><br><span class="line">export HOMEBREW_BOTTLE_DOMAIN&#x3D;&quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;homebrew-bottles&quot;</span><br></pre></td></tr></table></figure>
+
+<p>下载清华的安装脚本，卸载Homebrew</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone --depth&#x3D;1 https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;homebrew&#x2F;install.git brew-install</span><br><span class="line">&#x2F;bin&#x2F;bash brew-install&#x2F;uninstall.sh</span><br></pre></td></tr></table></figure>
+<p>报错：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused</span><br><span class="line">Failed to fetch Homebrew .gitignore!</span><br></pre></td></tr></table></figure>
+<p>说明本地脚本发起请求被拦截了，uninstall.sh中找到代码，加梯子：</p>
+<pre><code>-gitignore=&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/brew/HEAD/.gitignore)&quot;
++gitignore=&quot;$(curl -x socks5h://x.x.x.x:x -fsSL https://raw.githubusercontent.com/Homebrew/brew/HEAD/.gitignore)&quot;</code></pre><p>成功了。。。<br>我靠，很激动，导致我没记录下那行代码。<br>然后根据提示删除脚本没能删除的文件。</p>
+<h5 id="步骤四"><a href="#步骤四" class="headerlink" title="步骤四"></a>步骤四</h5><p>安装Homebrew。有两种方式，一种是直接镜像安装</p>
+<pre><code>/bin/bash brew-install/install.sh</code></pre><p>另一种是官方安装脚本，我选择官方，当然要加梯子：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;bin&#x2F;bash -c &quot;$(curl -x socks5h:&#x2F;&#x2F;x.x.x.x:x -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;install.sh)&quot;</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&gt; Checking for &#96;sudo&#96; access (which may request your password)...</span><br><span class="line">Password:</span><br><span class="line">&#x3D;&#x3D;&gt; This script will install:</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;bin&#x2F;brew</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;share&#x2F;doc&#x2F;homebrew</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;share&#x2F;man&#x2F;man1&#x2F;brew.1</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;share&#x2F;zsh&#x2F;site-functions&#x2F;_brew</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;etc&#x2F;bash_completion.d&#x2F;brew</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;Homebrew</span><br><span class="line">&#x3D;&#x3D;&gt; The following new directories will be created:</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;Cellar</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;Caskroom</span><br><span class="line">&#x3D;&#x3D;&gt; HOMEBREW_BREW_GIT_REMOTE is set to a non-default URL:</span><br><span class="line">https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;homebrew&#x2F;brew.git will be used as the Homebrew&#x2F;brew Git remote.</span><br><span class="line">&#x3D;&#x3D;&gt; HOMEBREW_CORE_GIT_REMOTE is set to a non-default URL:</span><br><span class="line">https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;homebrew&#x2F;homebrew-core.git will be used as the Homebrew&#x2F;homebrew-core Git remote.</span><br></pre></td></tr></table></figure>
+<p>成功了，哈哈。<br>远程脚本检测到本地设置了环境变量，直接启用了清华的软件源。</p>
+<p>然后安装PHP</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~ brew install php@7.4</span><br><span class="line">HOMEBREW_BREW_GIT_REMOTE set: using https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;homebrew&#x2F;brew.git for Homebrew&#x2F;brew Git remote.</span><br><span class="line">HOMEBREW_CORE_GIT_REMOTE set: using https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;homebrew&#x2F;homebrew-core.git for Homebrew&#x2F;core Git remote.</span><br><span class="line">Running &#96;brew update --preinstall&#96;...</span><br><span class="line">Warning: php@7.4 has been deprecated because it is a versioned formula!</span><br><span class="line">&#x3D;&#x3D;&gt; Downloading https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;homebrew-bottles&#x2F;apr-1.7.0_2.monterey.bottle.tar.gz</span><br><span class="line">######################################################################## 100.0%</span><br><span class="line">..................</span><br></pre></td></tr></table></figure>
+<p>完美。</p>
+<h5 id="写个总结吧"><a href="#写个总结吧" class="headerlink" title="写个总结吧"></a>写个总结吧</h5><ol>
+<li>软件管理要交给管理工具去做啊，省心省力。所以要好好对她: Homebrew。一定研究透。</li>
+<li>网络请求怎么用梯子🪜，是自己欠缺的地方。好好研究网络请求，和代理。</li>
+<li>要用官方文档，不要用别人随意写的帖子，切记切记！</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Homebrew</category>
+      </categories>
+      <tags>
+        <tag>Homebrew</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
 </search>
