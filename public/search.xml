@@ -489,6 +489,7 @@
 </blockquote>
 <h3 id="编辑器快捷键"><a href="#编辑器快捷键" class="headerlink" title="## 编辑器快捷键"></a><font color=#11d17b>## </font><font face=黑体>编辑器快捷键</font></h3><ul>
 <li>Command-P：跳转到某个文件</li>
+<li>Command-Shift-P：打开软件或者扩展的配置</li>
 <li>Ctrl-W：选择一个窗口</li>
 <li>Command-N：新建文件</li>
 <li>Command-O：打开文件</li>
@@ -504,6 +505,8 @@
 <li>Command-1/2/3：切换到第一/二/三分组</li>
 <li>fn-Ctrl-~：打开终端</li>
 <li>Command-Shift-T：重新打开被关闭的编辑器(和浏览器一样)</li>
+<li>Command-1：focus editor (自定义设置的)</li>
+<li>Command-2：focus terminal (自定义设置的)</li>
 </ul>
 <blockquote>
 <p>计15个</p>

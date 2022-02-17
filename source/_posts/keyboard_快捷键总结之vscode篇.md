@@ -34,6 +34,7 @@ tags:
 
 ### <font color=#11d17b>## </font><font face=黑体>编辑器快捷键</font>
 - Command-P：跳转到某个文件
+- Command-Shift-P：打开软件或者扩展的配置
 - Ctrl-W：选择一个窗口
 - Command-N：新建文件
 - Command-O：打开文件
@@ -49,6 +50,8 @@ tags:
 - Command-1/2/3：切换到第一/二/三分组
 - fn-Ctrl-~：打开终端
 - Command-Shift-T：重新打开被关闭的编辑器(和浏览器一样)
+- Command-1：focus editor (自定义设置的)
+- Command-2：focus terminal (自定义设置的)
 
 > 计15个
 
