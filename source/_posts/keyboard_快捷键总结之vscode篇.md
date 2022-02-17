@@ -53,7 +53,7 @@ tags:
 - Command-1：focus editor (自定义设置的)
 - Command-2：focus terminal (自定义设置的)
 
-> 计15个
+> 计18个
 
 ### <font color=#11d17b>## </font><font face=黑体>多光标与选择快捷键</font>
 - Option-Click：插入多个光标
